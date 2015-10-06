@@ -2,7 +2,6 @@ var tabUrl = null;
 var tabs = {};
 var selectedTab = null;
 var visitedLinks = new Object();
-var locked = false;
 var toBlock = false;
 
 chrome.runtime.onInstalled.addListener(function(details) {
@@ -76,10 +75,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         }
         
         if (details.type == "script") {
-            console.log(details.url);
-            locked = true;
-            scriptHandler(details.url, pippo); // Analizziamo se bloccarlo o meno*/
-            return {cancel: toBlock};
+            scriptHandler(details.url); // Analizziamo se bloccarlo o meno*/
         }
     }
 },
@@ -87,26 +83,18 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 ['blocking']                                              
 );
 
-function scriptHandler (url, pippo) {
+function scriptHandler (url) {
     var xmlHttp = getXMLHttpRequest();
     
     if (xmlHttp != null) {
         xmlHttp.onreadystatechange = function () {
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-                console.log("ao");
-                //blockRequest(xmlHttp.responseText, url);
-                pippo();
-                //locked = false;
+                blockRequest(xmlHttp.responseText, url);
             }
         }
         xmlHttp.open("GET", url, true);
         xmlHttp.send(null);
     }
-    //while (locked); // Fin quando non viene ultimata la richiesta AJAX attendo...
-}
-
-function pippo () {
-    locked = false;  
 }
 
 function blockRequest (scriptBody, url) {
@@ -122,17 +110,9 @@ function blockRequest (scriptBody, url) {
     labelProbability = forest.predictOne(valori);
     
     if (labelProbability >= 0.7) { // La richiesta non deve essere cancellata
-        //visitedLinks[url] = new Object();
-        /*chrome.tabs.executeScript({
-            file: 'scriptReload.js',
-            runAt: 'document_start'
-        });*/
-        //chrome.runtime.sendMessage({callerScript: 'background', toInsert: url});
-        console.log(url);
-        toBlock = false;
+        console.log(url + " - " + labelProbability);
     }
     else {
-        console.log("No!! - " + url + " - " + labelProbability);  
-        toBlock = true;
+        console.log("Bloccato - " + url + " - " + labelProbability);
     }
 }
