@@ -1,0 +1,19 @@
+{
+	"appName": {"message": "Alamut"},
+	"appDesc": {"message": "Proteggi la tua navigazione attraverso un'innovativa tecnica di bloccaggio"},
+	"webSite" : {"message": "http://www.isislab.it/projects/NoTrace/"},
+	"version": {"message": "1.0"},
+	"appAuthor": {"message": "ISISLab, Università di Salerno"},
+	"developers": {"message": "Federico Cozza"},
+	"OptionsLabel1_label": {"message": "Ecco gli script bloccati"},
+	"OptionsLabel7_label": {"message": "Alamut è un'estensione che sfrutta un meccanismo innovativo per il bloccaggio di pubblicità e oggetti di analisi e tracciamento"},
+	"OptionsLabel8_label": {"message": "Versione: "},
+	"OptionsLabel9_label": {"message": "Sito Web: "},
+	"OptionsLabel10_label": {"message": "Autore:"},
+	"OptionsLabel11_label": {"message": "Sviluppatori:"},
+	"OptionsLabel14_label": {"message": " Invia dati statistici anonimi al team di Alamut"},
+	"OptionsLabel15_label": {"message": "Sospendi Alamut"},
+	"OptionsLabel16_label": {"message": "Info su Alamut"},
+	"OptionsLabel17_label": {"message": "Aiutaci a migliorare la tua navigazione"},
+    "OptionsLabel34_label": {"message": "Riattiva Alamut"}
+}

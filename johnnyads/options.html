@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Alamut</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/help.css">
+		<script type="text/javascript" src="js/libs/jquery/jquery-2.1.4.js"></script>
+	</head>
+	<body>
+        <header>
+			<img id="logo" src="imgs/logo-01.png" alt="Alamut Logo">
+		</header>
+		
+		<div id="corpo">
+			<div id="parte_superiore">
+				<div id="barra_parte_superiore" class="barra">
+					<h1 id="titolo_barra_superiore" class="titoli_barre_home"></h1>
+				</div>
+                
+                <div id="contenuto_parte_superiore_main" class="contenuto_parte_superiore">
+				</div>
+                
+                <div id="contenuto_parte_superiore_help" class="contenuto_parte_superiore" style="display: none">
+                    <p id="descrizione_app" class="testi_normali_help"></p>
+                    <p id="versione" class="testi_normali_help"><span id="titolo_versione" class="titoli_testi_help"></span></p>
+                    <p class="testi_normali_help"><span id="titolo_sito" class="titoli_testi_help"></span><a id="sito" href="http://www.isislab.it/projects/NoTrace/" target="_blank"></a></p>
+                    <p id="autore" class="testi_normali_help"><span id="titolo_autore" class="titoli_testi_help"></span><br/></p>
+                    <p id="sviluppatori" class="testi_normali_help"><span id="titolo_sviluppatori" class="titoli_testi_help"></span><br/></p>
+				</div>
+            </div>
+			
+			<div id="parte_inferiore" style="display: none">
+				<div id="barra_parte_inferiore" class="barra">
+					<h1 id="titolo_barra_inferiore" class="titoli_barre_home"></h1>
+				</div>
+                
+                <div id="contenuto_parte_inferiore_help" class="contenuto_parte_inferiore">
+                   	<label id="dati_anonimi" for="checkbox_dati_anonimi"><input type="checkbox" id="checkbox_dati_anonimi"><span id="invia_dati_anonimi" class="testi_normali_help"></span></label>
+				</div>
+			</div>
+		</div>
+        
+        <footer>
+			<table id="pulsanti">
+				<tbody>
+					<tr>
+						<td id="cella_pulsante_sinistro"><button id="pulsante_sinistro" class="pulsante"><p id="testo_pulsante_sospendi"></p></button></td>
+						<td id="cella_pulsante_destro"><button id="pulsante_destro_main" class="pulsante_destro pulsante"><img class="immagine_pulsante" alt="help" src="imgs/help-01.png"></button>                         <button id="pulsante_destro_help" class="pulsante_destro pulsante" style="display: none"><img id="immagine_pulsante_help" class="immagine_pulsante" alt="home" src="imgs/home-01.png"></button></td>
+					</tr>
+				</tbody>
+			</table>
+		</footer>
+        
+        <img id="sospensione" src="imgs/sospensione.png" style="display: none">
+		<script type="text/javascript" src="options.js"></script>
+	</body>
+</html>

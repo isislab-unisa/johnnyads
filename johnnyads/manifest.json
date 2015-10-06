@@ -1,0 +1,39 @@
+{
+	"manifest_version": 2,
+	"name": "__MSG_appName__",
+	"version": "1.0",
+	"description": "__MSG_appDesc__",
+	"author": "__MSG_appAuthor__",
+	"homepage_url": "http://www.isislab.it/projects/NoTrace/",
+	"default_locale": "it",
+	"icons": {
+		"16" : "imgs/alamut_16.png",
+		"32" : "imgs/alamut_32.png",
+		"48" : "imgs/alamut_64.png",
+		"128" : "imgs/alamut_128.png"
+	},
+	"browser_action": {
+		"default_icon": "imgs/alamut_16.png",
+		"default_title": "Alamut",
+		"default_popup": "options.html"
+	},
+	"permissions": [
+		"*://*/*",
+		"storage",
+		"tabs",
+		"webRequest",
+		"webRequestBlocking",
+		"cookies",
+		"contentSettings",
+		"privacy"
+	],
+	"background": {
+		"scripts": [
+            "js/libs/jquery/jquery-2.1.4.js",
+            "js/libs/RandomForest/randomforest.js",
+            "js/utils/utils.js",
+            "dataset.js",
+			"background.js"
+		]
+	}
+}
