@@ -1,3 +1,3 @@
-# johnnyads
+# johnnyadsanalysis
 
-Temporany version of Google Chrome Extension.
+Temporany version Java tool to generate a machine learing data set.
