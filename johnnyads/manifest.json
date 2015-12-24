@@ -24,8 +24,7 @@
 		"webRequest",
 		"webRequestBlocking",
 		"cookies",
-		"contentSettings",
-		"privacy"
+		"contentSettings"
 	],
 	"background": {
 		"scripts": [

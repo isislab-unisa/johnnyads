@@ -1,3 +1,5 @@
+var background = chrome.extension.getBackgroundPage();
+
 function mostra_finestra_help () {
 	$("#titolo_barra_superiore").html(chrome.i18n.getMessage("OptionsLabel16_label"));
 	$("#titolo_barra_inferiore").html(chrome.i18n.getMessage("OptionsLabel17_label"));
@@ -51,13 +53,68 @@ function carica_preferenze () {
     }
 }
 
+function carica_listaSiti() {
+    var corpoTabella = document.getElementById("listaSiti").getElementsByTagName("tbody")[0];
+    
+    corpoTabella.innerHTML = "";
+    
+    var lists = background.getFiles();
+    var blacklist = lists[0];
+    var whitelist = lists[1];
+    
+    console.log(whitelist.length);
+    console.log(blacklist.length);
+    
+    for (i = 0, l = whitelist.length; i < l; i++) {
+        var elemento = whitelist[i];
+        var riga = document.createElement("tr");
+        var cella = document.createElement("td");
+        cella.classList.add("whitelisted");
+        cella.appendChild(document.createTextNode(elemento));
+        
+        cella.addEventListener("click", function (e) {
+            toWhitelist(e.target); 
+        });
+        
+        riga.appendChild(cella);
+        
+        corpoTabella.appendChild(riga);
+    }
+    
+    for (i = 0, l = blacklist.length; i < l; i++) {
+        var elemento = blacklist[i];
+        var riga = document.createElement("tr");
+        var cella = document.createElement("td");
+        cella.appendChild(document.createTextNode(elemento));
+        
+        cella.addEventListener("click", function (e) {
+            toWhitelist(e.target); 
+        });
+        
+        riga.appendChild(cella);
+        
+        corpoTabella.appendChild(riga);
+    }
+}
+
+function toWhitelist (element) {
+    if (element.classList.contains("whitelisted")) { // Il file deve essere tolto dalla whitelist
+        element.classList.remove("whitelisted");
+        delete background.whitelist[element.innerHTML];
+    }
+    else { // Il file deve essere inserito in whitelist
+        element.classList.add("whitelisted");
+        background.whitelist[element.innerHTML] = new Object();   
+    }
+}
+
 $(document).ready(function () {
 	$("#checkbox_dati_anonimi").click(function () { // Impostiamo il listener per la casella dei dati anonimi nella pagina di help
 		localStorage["datianonimi"] = $(this).is(':checked');
 	});
 	carica_preferenze();
+    carica_listaSiti();
 });
-
 
 document.getElementById("pulsante_sinistro").addEventListener("click", sospendi_alamut);
 document.getElementById("pulsante_destro_main").addEventListener("click", mostra_finestra_help);

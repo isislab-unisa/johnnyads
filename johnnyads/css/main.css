@@ -31,6 +31,22 @@ div#corpo {
 div#contenuto_parte_superiore_main {
     height: 80mm;
     width: 100%;
+    overflow: auto;
+}
+
+table#listaSiti {
+    width: 100%;
+}
+
+td:hover {
+    cursor: pointer;
+    text-decoration: line-through;
+    color: #777777;
+}
+
+td.whitelisted {
+    text-decoration: line-through;
+    color: #AAAAAA;
 }
 
 div#parte_superiore {

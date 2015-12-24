@@ -3,7 +3,7 @@
 	"appDesc": {"message": "Proteggi la tua navigazione attraverso un'innovativa tecnica di bloccaggio"},
 	"webSite" : {"message": "http://www.isislab.it/projects/NoTrace/"},
 	"version": {"message": "1.0"},
-	"appAuthor": {"message": "ISISLab, Università di Salerno"},
+	"appAuthor": {"message": "Federico Cozza"},
 	"developers": {"message": "Federico Cozza"},
 	"OptionsLabel1_label": {"message": "Ecco gli script bloccati"},
 	"OptionsLabel7_label": {"message": "Alamut è un'estensione che sfrutta un meccanismo innovativo per il bloccaggio di pubblicità e oggetti di analisi e tracciamento"},

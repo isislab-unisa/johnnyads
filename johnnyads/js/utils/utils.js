@@ -14,3 +14,16 @@ function getXMLHttpRequest () {
     }
     return xmlHttp;
 }
+
+function addToList(url){
+
+  var list;
+  try {
+    list = JSON.parse(localStorage['listaBloccati']);
+  } 
+    catch (ex) {
+    list = new Array();
+  }
+  list.push(url);
+  localStorage['listaBloccati'] = JSON.stringify(list);
+}
